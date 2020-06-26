@@ -1,0 +1,24 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+	<h1>Login</h1>
+	<form action="submit" method="POST"> {% csrf_token %}	<!--quando fizer a autenticação vai enviar um post. Esse csrf_token gera um token de segurança desse certificado, para evitar um erro que aparece. O token é necessário para evitar ataques hacker. Qualquer form que não seja um GET vai precisar do token. No form GET já faz automático-->
+		<div style="text-align: center">
+			
+			<label>Usuário:</label>
+			<input type="text" name="username">
+			&nbsp;
+			<label>Password:</label>
+			<input type="password" name="password">
+			<button type="submit">Entrar</button>
+		</div>
+	</form>
+
+	{% for message in messages %}
+		<div style="text-align: center">
+			<br>
+			<strong>Erro:</strong> {{ message }} <!-- duas chaves = print, ou seja print(message)-->
+		</div>
+	{% endfor %}
+
+{% endblock %}
