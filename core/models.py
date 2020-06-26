@@ -16,4 +16,7 @@ class Evento(models.Model):
 
 	def __str__(self):		#esse método trata o nome dos eventos adicionados p/ igual o título
 		return self.titulo
+
+	def get_data_evento(self):
+		return self.data_evento.strftime('%d/%m/%Y %H:%M hr')
 			

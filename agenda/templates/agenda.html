@@ -1,0 +1,12 @@
+{% extends "model-page.html" %}
+
+{% block content %} 
+	<h2>Agendamentos</h2>
+
+	<ul style="font-size: 18px">
+		{% for evento in eventos %}
+			<li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li> 
+		<!--as duas chaves serve para imprimir algo. Algum objeto que estou retornando no meu html. uma chave e porcentagem é para passar um comando python no html-->
+		{% endfor %}
+	</ul>
+{% endblock %}
