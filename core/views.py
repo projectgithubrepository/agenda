@@ -41,3 +41,20 @@ def lista_eventos(request):
 	evento = Evento.objects.filter(usuario=usuario)		#aqui vai buscar um objeto na classe Evento lá no arquivo models. Ao substituir o .get(id=1) por .all() vai buscar tudo. O .filter vai filtar nesse caso os eventos daquele usuário
 	dados = {'eventos':evento}			#vai passar um dicionário
 	return render(request, 'agenda.html', dados)
+
+@login_required(login_url='/login/')
+def evento(request):
+	return render(request, 'evento.html')
+
+@login_required(login_url='/login/')
+def submit_evento(request):
+	if request.POST:
+		titulo = request.POST.get('titulo')
+		data_evento = request.POST.get('data_evento')
+		descricao = request.POST.get('descricao')
+		usuario = request.user
+		Evento.objects.create(titulo=titulo,		#lá na def data_eventos passou um filter
+							data_evento=data_evento,#aqui usou create
+							descricao=descricao,
+							usuario=usuario)
+	return redirect('/')
