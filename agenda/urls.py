@@ -25,6 +25,7 @@ urlpatterns = [
     path('agenda/evento/', views.evento),
     path('agenda/evento/submit', views.submit_evento),
     #path('', views.index) #leva para uma view e a view te redireciona para uma url
+    path('agenda/evento/delete/<int:id_evento>/', views.delete_evento),
     path('', RedirectView.as_view(url='/agenda/')), #essa é a outra forma de redirecionar a pag. inicial para uma url designada
     path('login/', views.login_user), #não pode usar apenas views.login pq já existe uma função chamada login empacotada no contrib.auth do django
     path('login/submit', views.submit_login), #para que aconteça autenticação do usuário ao tentar logar na url login.html dos templates
