@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zk(oy%u_qe3y3n@2l_7d^g=735m7t!7zs$_uvpi9q^u#osssr4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #True apenas para desenvolvimento, pois detalha o erro e ajuda a entender e realizar as alterações. Para produção precisa ficar False. Assim o erro que aparece é mais 'friendly' para o usuário. "NOT FOUND".
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #caso queira fazer uma coisa genérica é só colocar um asterisco dentro das chaves ['*'] e colocar o DEBUG False.
 
 
 # Application definition
@@ -104,15 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

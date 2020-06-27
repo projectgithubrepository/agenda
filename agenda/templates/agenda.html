@@ -8,11 +8,16 @@
 	<ul style="font-size: 18px">
 		{% for evento in eventos %}  
 			<li>
-			{{ evento.titulo }} - {{ evento.get_data_evento }} - {{ evento.local }}
+				<!-- essa div foi incluída para que os eventos atrasados em até 1 hora continuem aparecendo na tela e fiquem em vermelho. Após 1hr do horário ele automaticamente some da pagina agenda.html, mas não foi excluído, apenas não está visível -->
+				<div style={% if evento.get_evento_atrasado %}
+							"color:red"
+							{% endif %}>
+					{{ evento.titulo }} - {{ evento.get_data_evento }} - {{ evento.local }}
 
-			( <a href="evento/?id={{ evento.id }}"> Editar </a>	<!-- ?id= {.{. }.} é a maneira de passar o id como parâmetro no get 
-			aqui ele reaproveita o path já existente, com o mesmo template de insert, ou seja, evento.html e a mesma view de submit --> 
-			/ <a href="evento/delete/{{ evento.id }}/"> Excluir </a> )
+					( <a href="evento/?id={{ evento.id }}"> Editar </a>	<!-- ?id= {.{. }.} é a maneira de passar o id como parâmetro no get 
+					aqui ele reaproveita o path já existente, com o mesmo template de insert, ou seja, evento.html e a mesma view de submit --> 
+					/ <a href="evento/delete/{{ evento.id }}/"> Excluir </a> )
+				</div>
 			</li> 
 		<!--as duas chaves serve para imprimir algo. Algum objeto que estou retornando no meu html. uma chave e porcentagem é para passar um comando python no html-->	
 		{% endfor %}

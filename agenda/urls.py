@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('eventos/<titulo_evento>/', views.Eventos),
     path('agenda/', views.lista_eventos),
+    path('agenda/lista', views.json_lista_evento),
     path('agenda/evento/', views.evento),
     path('agenda/evento/submit', views.submit_evento),
     #path('', views.index) #leva para uma view e a view te redireciona para uma url
